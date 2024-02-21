@@ -1,19 +1,8 @@
 <script setup lang="ts">
+import { useTasks } from "../composables/get-tasks";
 import TasksCard from "./tasks-card.vue";
-import type { Task } from "~/types";
 
-const tasks: Task[] = [
-  {
-    id: 1,
-    title: "delectus aut autem",
-    completed: false,
-  },
-  {
-    id: 2,
-    title: "quis ut nam facilis et officia qui",
-    completed: false,
-  },
-];
+const tasks = await useTasks();
 </script>
 
 <template>
