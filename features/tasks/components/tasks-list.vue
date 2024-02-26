@@ -1,17 +1,18 @@
 <script setup lang="ts">
-import { useTasks } from "../composables/get-tasks";
+import { useTasks } from "../store";
 import TasksCard from "./tasks-card.vue";
 
-const tasks = await useTasks();
+const { getTasks } = useTasks();
+const { data } = await useAsyncData("tasks", () => getTasks());
 </script>
 
 <template>
   <div aria-label="Tasks">
     <v-container fluid>
       <v-row>
-        <template v-if="tasks.length > 0">
-          <v-col v-for="task in tasks" :key="task.id" cols="12">
-            <TasksCard :item="task" />
+        <template v-if="data?.length">
+          <v-col v-for="item in data" :key="item.id" cols="12">
+            <TasksCard :item="item" />
           </v-col>
         </template>
         <v-col v-else class="text-h6 text-center" cols="12">
