@@ -1,7 +1,9 @@
+import { useStorage } from "@vueuse/core";
 import type { Task } from "../types";
 
 export const useTasks = defineStore("tasks", () => {
   const tasks: Ref<Task[] | null> = ref(null);
+  const lsTasks: Ref<Task[]> = useStorage("tasks", []);
 
   function fetchTasks(): Promise<Task[]> {
     return useApi("todos");
@@ -11,5 +13,9 @@ export const useTasks = defineStore("tasks", () => {
     return useQuery({ queryFn: fetchTasks, state: tasks });
   }
 
-  return { fetchTasks, getTasks };
+  function getLsTasks(): Task[] {
+    return lsTasks.value;
+  }
+
+  return { fetchTasks, getTasks, getLsTasks };
 });

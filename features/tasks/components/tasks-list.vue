@@ -1,17 +1,18 @@
 <script setup lang="ts">
-import { useTasks } from "../store";
+import type { Task } from "../types";
 import TasksCard from "./tasks-card.vue";
 
-const { getTasks } = useTasks();
-const { data } = await useAsyncData("tasks", getTasks);
+defineProps<{
+  items: Task[];
+}>();
 </script>
 
 <template>
   <div aria-label="Tasks">
     <v-container fluid>
       <v-row>
-        <template v-if="data?.length">
-          <v-col v-for="item in data" :key="item.id" cols="12">
+        <template v-if="items.length > 0">
+          <v-col v-for="item in items" :key="item.id" cols="12">
             <TasksCard :item="item" />
           </v-col>
         </template>
