@@ -3,7 +3,7 @@ import { useTasks } from "../store";
 import TasksCard from "./tasks-card.vue";
 
 const { getTasks } = useTasks();
-const { data } = await useAsyncData("tasks", () => getTasks());
+const { data } = await useAsyncData("tasks", getTasks);
 </script>
 
 <template>
