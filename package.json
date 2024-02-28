@@ -6,7 +6,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev --dotenv .env.local",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
+    "preview": "nuxt preview --dotenv .env.local",
     "postinstall": "nuxt prepare",
     "lint:js": "eslint --ext \".ts,.vue\" --ignore-path .gitignore .",
     "lint:prettier": "prettier --check .",

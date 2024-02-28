@@ -1,9 +1,14 @@
 <script setup lang="ts">
-import { LsTasksList } from "@/features/tasks";
+import { useAuth } from "@/stores/auth";
+import { Tasks } from "@/features/tasks";
+
+const authStore = useAuth();
+const { auth } = storeToRefs(authStore);
 </script>
 
 <template>
   <v-container>
-    <LsTasksList />
+    <v-btn @click="auth = !auth">Auth</v-btn>
+    <Tasks />
   </v-container>
 </template>
