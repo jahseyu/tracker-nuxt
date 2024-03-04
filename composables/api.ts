@@ -1,6 +1,6 @@
-import { LRUCache } from "lru-cache";
-import { hash as ohash } from "ohash";
-import type { NitroFetchRequest, NitroFetchOptions } from "nitropack";
+import { LRUCache } from 'lru-cache';
+import { hash as ohash } from 'ohash';
+import type { NitroFetchRequest, NitroFetchOptions } from 'nitropack';
 
 const cache = new LRUCache<string, any>({
   max: 500,
@@ -9,7 +9,7 @@ const cache = new LRUCache<string, any>({
 
 export function useApi(
   request: NitroFetchRequest,
-  options?: NitroFetchOptions<string, any>
+  options?: NitroFetchOptions<string, any>,
 ): Promise<any> {
   const hash = ohash([request, options?.params]);
   if (!cache.has(hash)) {
@@ -21,7 +21,7 @@ export function useApi(
         .catch((e) => {
           cache.delete(hash);
           throw e;
-        })
+        }),
     );
   }
   return cache.get(hash)!;

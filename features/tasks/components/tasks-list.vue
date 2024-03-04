@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Task } from "../types";
-import TasksCard from "./tasks-card.vue";
+import type { Task } from '../types';
+import TasksCard from './tasks-card.vue';
 
 defineProps<{
   items: Task[];

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useTasks } from "../stores/tasks";
-import TasksList from "./tasks-list.vue";
-import TasksSkeleton from "./tasks-skeleton.vue";
-import { useAuth } from "@/stores/auth";
+import { useTasks } from '../stores/tasks';
+import TasksList from './tasks-list.vue';
+import TasksSkeleton from './tasks-skeleton.vue';
+import { useAuth } from '@/stores/auth';
 
 const authStore = useAuth();
 const { auth } = storeToRefs(authStore);

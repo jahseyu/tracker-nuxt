@@ -1,12 +1,12 @@
-import { useStorage } from "@vueuse/core";
-import type { Task } from "../types";
+import { useStorage } from '@vueuse/core';
+import type { Task } from '../types';
 
-export const useTasks = defineStore("tasks", () => {
+export const useTasks = defineStore('tasks', () => {
   const tasks: Ref<Task[] | null> = ref(null);
-  const lsTasks: Ref<Task[]> = useStorage("tasks", []);
+  const lsTasks: Ref<Task[]> = useStorage('tasks', []);
 
   function fetchTasks(): Promise<Task[]> {
-    return useApi("todos");
+    return useApi('todos');
   }
 
   function getTasks(): Promise<Task[]> {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Task } from "../types";
+import type { Task } from '../types';
 
 defineProps<{
   item?: Task;

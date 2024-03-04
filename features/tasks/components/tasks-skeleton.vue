@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import TasksCard from "./tasks-card.vue";
+import TasksCard from './tasks-card.vue';
 </script>
 
 <template>

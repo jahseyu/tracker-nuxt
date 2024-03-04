@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useAuth } from "@/stores/auth";
-import { Tasks } from "@/features/tasks";
+import { useAuth } from '@/stores/auth';
+import { Tasks } from '@/features/tasks';
 
 const authStore = useAuth();
 const { auth } = storeToRefs(authStore);
