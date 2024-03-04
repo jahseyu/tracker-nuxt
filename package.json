@@ -8,10 +8,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview --dotenv .env.local",
     "postinstall": "nuxt prepare",
-    "lint:js": "eslint --ext \".ts,.vue\" --ignore-path .gitignore .",
-    "lint:prettier": "prettier --check .",
-    "lint": "yarn lint:js && yarn lint:prettier",
-    "lintfix": "prettier --write --list-different . && yarn lint:js --fix"
+    "lint": "eslint --ext \".ts,.vue\" --ignore-path .gitignore . --fix"
   },
   "dependencies": {
     "@mdi/font": "^7.3.67",
